@@ -1,0 +1,22 @@
+# Onde os talismãs funcionam: hotbar (1-9) ou inventory (qualquer slot)
+funcionamento: inventory
+
+talismans:
+  # Talismans with ItemsAdder
+  fire_power:
+    nome: "&c&lTalisman of Flames"
+    material: "items:fire_sword" # namespace:id
+    lore:
+      - "&7Este talismã concede poderes de fogo."
+      - ""
+      - "&aFunciona dentro do inventário."
+    efeito: FIRE_RESISTANCE;1
+  # Talismans with vanilla
+  speed_boost:
+    nome: "&b&lTalisman of Swiftness"
+    material: "FEATHER"
+    lore:
+      - "&7Sinta a velocidade dos ventos."
+      - ""
+      - "&aFunciona dentro do inventário."
+    efeito: SPEED;2
