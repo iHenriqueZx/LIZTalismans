@@ -2,6 +2,7 @@ package br.com.henriplugins.commands;
 
 import br.com.henriplugins.LIZTalismans;
 import br.com.henriplugins.model.Talisman;
+import br.com.henriplugins.objects.TalismanBag;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -21,7 +22,7 @@ public class TalismanCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Use: /" + label + " <reload|give>");
+            sender.sendMessage(ChatColor.RED + "Use: /" + label + " <reload|give|givebag>");
             return true;
         }
 
@@ -64,6 +65,38 @@ public class TalismanCommand implements CommandExecutor {
 
             sender.sendMessage(ChatColor.GREEN + "Você deu o talismã '" + args[2] + "' para " + target.getName());
             target.sendMessage(ChatColor.YELLOW + "Você recebeu o talismã " + item.getItemMeta().getDisplayName());
+
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("givebag")) {
+            if (!sender.hasPermission("liztalismans.admin")) {
+                sender.sendMessage(ChatColor.RED + "Você não tem permissão.");
+                return true;
+            }
+
+            if (args.length < 2) {
+                sender.sendMessage(ChatColor.RED + "Use: /" + label + " givebag <jogador>");
+                return true;
+            }
+
+            Player target = Bukkit.getPlayer(args[1]);
+            if (target == null) {
+                sender.sendMessage(ChatColor.RED + "Jogador não encontrado.");
+                return true;
+            }
+
+            if (!plugin.getConfigManager().isBagEnabled()) {
+                sender.sendMessage(ChatColor.RED + "A bolsa de talismãs não está habilitada na configuração.");
+                return true;
+            }
+
+            TalismanBag bag = plugin.getTalismanBag();
+            ItemStack bagItem = bag.createBagItem();
+            target.getInventory().addItem(bagItem);
+
+            sender.sendMessage(ChatColor.GREEN + "Você deu a Bolsa de Talismãs para " + target.getName());
+            target.sendMessage(ChatColor.YELLOW + "Você recebeu a Bolsa de Talismãs!");
 
             return true;
         }

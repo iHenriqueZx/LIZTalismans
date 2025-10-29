@@ -1,7 +1,8 @@
-br\com\henriplugins\listener\TalismanListener$1.class
 br\com\henriplugins\listener\TalismanListener.class
 br\com\henriplugins\model\Talisman.class
 br\com\henriplugins\util\ItemBuilder.class
 br\com\henriplugins\LIZTalismans.class
 br\com\henriplugins\commands\TalismanCommand.class
 br\com\henriplugins\config\ConfigManager.class
+br\com\henriplugins\objects\TalismanBag.class
+br\com\henriplugins\listener\TalismanBagListener.class

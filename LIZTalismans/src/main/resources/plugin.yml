@@ -6,7 +6,7 @@ softdepend: [ItemsAdder]
 commands:
   liztalismans:
     description: Comandos do plugin LIZTalismans
-    usage: /<command> <reload|give>
+    usage: /<command> <reload|give|givebag>
     aliases: [talismans, talisman]
     permission: liztalismans.admin
 permissions:

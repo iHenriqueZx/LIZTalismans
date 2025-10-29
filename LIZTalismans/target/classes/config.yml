@@ -20,3 +20,26 @@ talismans:
       - ""
       - "&aFunciona dentro do inventário."
     efeito: SPEED;2
+
+# Talismans Bag
+# You need to restart the server to apply.
+talismans_bag:
+  enable: true
+  name: "&f&lTalisman Bag"
+  material: "86bd920b402815ad89018df82977be9f7ea19e799ecf016f7f0da4ab47ca23c5" # base64, itemsadder or vanilla
+  lore:
+    - "&7Keep your talismans"
+    - "&7And they will still work."
+    - ""
+    - "&f&lCOMUM ITEM"
+  slots: 27
+  recipe:
+    enabled: true
+    shape:
+      - "LEL"
+      - "LCL"
+      - "LLL"
+    ingredients:
+      L: LEATHER
+      E: EMERALD
+      C: CHEST
