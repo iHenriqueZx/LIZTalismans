@@ -6,13 +6,13 @@
 
   <groupId>br.com.henriplugins</groupId>
   <artifactId>LIZTalismans</artifactId>
-  <version>1.0</version>
+  <version>1.2</version>
   <packaging>jar</packaging>
 
   <name>LIZTalismans</name>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -55,6 +55,10 @@
           <url>https://maven.devs.beer/</url>
       </repository>
       <repository>
+          <id>minecraft-repo</id>
+          <url>https://libraries.minecraft.net/</url>
+      </repository>
+      <repository>
           <id>spigotmc-repo</id>
           <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
       </repository>
@@ -69,6 +73,12 @@
           <groupId>dev.lone</groupId>
           <artifactId>api-itemsadder</artifactId>
           <version>4.0.10</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.mojang</groupId>
+          <artifactId>authlib</artifactId>
+          <version>1.5.21</version>
           <scope>provided</scope>
       </dependency>
       <dependency>

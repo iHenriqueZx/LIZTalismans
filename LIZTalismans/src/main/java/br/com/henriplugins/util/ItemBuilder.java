@@ -5,8 +5,14 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class ItemBuilder {
@@ -41,6 +47,25 @@ public class ItemBuilder {
             } else {
                 item = new ItemStack(Material.STONE);
                 Bukkit.getLogger().warning("[LIZTalismans] Não foi possível encontrar o item do ItemsAdder: " + material);
+            }
+        } else if (material.length() > 50) {
+            item = new ItemStack(Material.PLAYER_HEAD);
+            SkullMeta meta = (SkullMeta) item.getItemMeta();
+            if (meta != null) {
+                try {
+                    PlayerProfile profile = Bukkit.createPlayerProfile(UUID.randomUUID(), "TalismanBag");
+                    PlayerTextures textures = profile.getTextures();
+                    textures.setSkin(new URL("http://textures.minecraft.net/texture/" + material));
+                    profile.setTextures(textures);
+                    meta.setOwnerProfile(profile);
+
+                    if (name != null) meta.setDisplayName(name);
+                    if (lore != null) meta.setLore(lore);
+
+                    item.setItemMeta(meta);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             Material mat = Material.matchMaterial(material);

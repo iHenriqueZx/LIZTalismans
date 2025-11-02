@@ -1,12 +1,12 @@
 name: LIZTalismans
-version: '1.0'
+version: '1.2'
 main: br.com.henriplugins.LIZTalismans
 api-version: '1.21'
 softdepend: [ItemsAdder]
 commands:
   liztalismans:
     description: Comandos do plugin LIZTalismans
-    usage: /<command> <reload|give>
+    usage: /<command> <reload|give|givebag>
     aliases: [talismans, talisman]
     permission: liztalismans.admin
 permissions:
